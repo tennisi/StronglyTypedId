@@ -261,6 +261,7 @@ namespace StronglyTypedIds
         public override int GetHashCode() => Value.GetHashCode();
 
         public override string ToString() => Value.ToString();
+        public string ToString(System.Globalization.CultureInfo cultureInfo) => Value.ToString(cultureInfo);
         public static bool operator ==(MyId a, MyId b) => a.Equals(b);
         public static bool operator !=(MyId a, MyId b) => !(a == b);
         public int CompareTo(MyId other) => Value.CompareTo(other.Value);
