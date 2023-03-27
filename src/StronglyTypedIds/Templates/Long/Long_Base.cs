@@ -19,5 +19,6 @@
         public override int GetHashCode() => Value.GetHashCode();
 
         public override string ToString() => Value.ToString();
+        public string ToString(System.Globalization.CultureInfo cultureInfo) => Value.ToString(cultureInfo);
         public static bool operator ==(TESTID a, TESTID b) => a.Equals(b);
         public static bool operator !=(TESTID a, TESTID b) => !(a == b);
