@@ -29,7 +29,7 @@
 
         public decimal ToDecimal(System.IFormatProvider? provider)
         {
-            throw new System.NotImplementedException();
+            return (decimal)Value;
         }
 
         public double ToDouble(System.IFormatProvider? provider)
@@ -69,7 +69,7 @@
 
         public object ToType(System.Type conversionType, System.IFormatProvider? provider)
         {
-            throw new System.NotImplementedException();
+            return Value;
         }
 
         public ushort ToUInt16(System.IFormatProvider? provider)

@@ -26,6 +26,7 @@
         public static readonly MyTestId Empty = new MyTestId(0);
 
         public bool Equals(MyTestId other) => this.Value.Equals(other.Value);
+
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
@@ -37,7 +38,28 @@
         public override string ToString() => Value.ToString();
 
         public static bool operator ==(MyTestId a, MyTestId b) => a.Equals(b);
+
         public static bool operator !=(MyTestId a, MyTestId b) => !(a == b);
+
+        public static implicit operator long(MyTestId customId)
+        {
+            return customId.Value;
+        }
+
+        public static implicit operator MyTestId(long value)
+        {
+            return new MyTestId(value);
+        }
+
+        public static implicit operator decimal(MyTestId customId)
+        {
+            return customId.Value;
+        }
+
+        public static implicit operator MyTestId(decimal value)
+        {
+            return new MyTestId((long)value);
+        }
 
         #pragma warning disable CA1036
 #nullable enable
@@ -103,7 +125,7 @@
 
         public decimal ToDecimal(System.IFormatProvider? provider)
         {
-            throw new System.NotImplementedException();
+            return (decimal)Value;
         }
 
         public double ToDouble(System.IFormatProvider? provider)
@@ -143,7 +165,7 @@
 
         public object ToType(System.Type conversionType, System.IFormatProvider? provider)
         {
-            throw new System.NotImplementedException();
+            return Value;
         }
 
         public ushort ToUInt16(System.IFormatProvider? provider)
